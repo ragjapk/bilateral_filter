@@ -14,9 +14,9 @@ import imageio
 import skimage.util as skp
 
 lpf=np.matrix([[-1,-1,-1],[-1,8,-1,],[-1,-1,-1]])
-hpf=np.matrix([[1,1,1],[1,1,1],[1,1,1]])
 lpf = np.float_(lpf)
 lpf=lpf/9
+hpf=np.matrix([[1,1,1],[1,1,1],[1,1,1]])
 hpf = np.float_(hpf)
 hpf=hpf/9
 
@@ -47,7 +47,8 @@ image1=signal.convolve2d(R,hpf2,mode='same')
 
 
 img1 = Image.fromarray(image1).convert('L')
+plt.imsave('gaussian_noise_filtered_lena_lpf2.png',img1,cmap='gray')
 #img2 = Image.fromarray(image2).convert('L')
 #img3 = Image.fromarray(image3).convert('L')
 #bgr=Image.merge("RGB",(img1,img2,img3))
-plt.imsave('gaussian_noise_filtered_lena_lpf2.png',img1,cmap='gray')
+
